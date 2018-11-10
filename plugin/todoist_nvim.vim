@@ -20,5 +20,5 @@ endfunction
 " --------------------------------
 "  Expose our commands to the user
 " --------------------------------
-command! TodoistProjects call todoist#get_projects()
-command! -nargs=1 TodoProject call todoist#get_project(<f-args>)
+command! TodoistProjects call todoist_nvim#get_projects()
+command! -nargs=1 TodoProject call todoist_nvim#get_project(<f-args>)
