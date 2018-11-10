@@ -5,7 +5,7 @@ from rplugin.python3.service.todoist import TodoistService
 def get_project(project_name: str):
     service = TodoistService(_get_email(), _get_password())
     project_name = str(project_name.strip())
-    return service.get_project(project_name)
+    print(service.get_project(project_name))
 
 
 def get_all_projects():
@@ -13,6 +13,16 @@ def get_all_projects():
     projects = service.get_all_projects()
     for project in projects:
         print(project.name)
+
+
+def get_all_notes():
+    service = TodoistService(_get_email(), _get_password())
+    notes = service.get_all_notes()
+    if len(notes) == 0:
+        print("コメントがありません.")
+    for note in notes:
+        print('content: {}, attached task: {},'
+              .format(note.content, note.task))
 
 
 def _get_api_token():
