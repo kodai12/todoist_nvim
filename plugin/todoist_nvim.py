@@ -5,7 +5,7 @@ from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 def get_user():
     dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
     user = dataaccess.get_user()
-    if len(user) > 0:
+    if user:  # Entityの存在チェックどうするか
         print('Id: {}, Name: {}, Email: {}'
               .format(user.user_id.value,
                       user.full_name.value,
@@ -16,6 +16,7 @@ def get_user():
 
 def get_project(project_name: str):
     pass
+
 
 def get_all_projects():
     pass

@@ -25,7 +25,7 @@ class FullName(Value):
 
 
 class PremiumStatus(Value):
-    def __init__(self, is_premium:bool, premium_until: datetime) -> None:
+    def __init__(self, is_premium: bool, premium_until: datetime) -> None:
         self.is_premium = is_premium
         self.premium_until = premium_until
 
