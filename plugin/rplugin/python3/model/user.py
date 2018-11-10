@@ -6,22 +6,22 @@ from rplugin.python3.model.value import Value
 
 class UserId(Value):
     def __init__(self, value: int) -> None:
-        self.user_id = value
+        self.value = value
 
 
 class Email(Value):
     def __init__(self, value: str) -> None:
-        self.email = value
+        self.value = value
 
 
 class Password(Value):
     def __init__(self, value: str) -> None:
-        self.password = value
+        self.value = value
 
 
 class FullName(Value):
     def __init__(self, value: str) -> None:
-        self.full_name = value
+        self.value = value
 
 
 class PremiumStatus(Value):
@@ -32,12 +32,12 @@ class PremiumStatus(Value):
 
 class StartDay(Value):
     def __init__(self, value: datetime) -> None:
-        self.start_day = value
+        self.value = value
 
 
 class ApiToken(Value):
     def __init__(self, value: str):
-        self.api_token = value
+        self.value = value
 
 
 class User(Entity):
