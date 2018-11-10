@@ -79,6 +79,6 @@ def create_user(user_id: int,
         full_name=FullName(full_name),
         premium_status=PremiumStatus(is_premium, premium_until),
         start_day=StartDay(start_day),
-        api_token=ApiToken(api_token),
+        api_token=ApiToken(api_token)
     )
 
