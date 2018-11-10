@@ -4,6 +4,7 @@ from rplugin.python3.service.todoist import TodoistService
 
 def get_project(project_name: str):
     service = TodoistService(_get_email(), _get_password())
+    project_name = str(project_name.strip())
     return service.get_project(project_name)
 
 

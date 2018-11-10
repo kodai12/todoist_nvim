@@ -9,12 +9,16 @@ python import todoist_nvim
 " --------------------------------
 "  Function(s)
 " --------------------------------
-function! GetProjects()
-python todoist_nvim.get_all_projects()
+function! todoist#get_project(project_name)
+  python todoist_nvim.get_project(vim.eval('a:project_name'))
+endfunction
+
+function! todoist#get_projects()
+  python todoist_nvim.get_all_projects()
 endfunction
 
 " --------------------------------
 "  Expose our commands to the user
 " --------------------------------
-command! TodoistProjects call GetProjects()
-
+command! TodoistProjects call todoist#get_projects()
+command! -nargs=1 TodoProject call todoist#get_project(<f-args>)
