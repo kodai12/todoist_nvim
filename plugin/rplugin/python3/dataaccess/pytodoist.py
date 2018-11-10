@@ -16,5 +16,5 @@ class PytodoistAPIDataSource:
     def get_project(self, project_name: str) -> todoist.Project:
         pass
 
-    def get_projects(self) -> list(todoist.Project):
+    def get_projects(self):
         pass
