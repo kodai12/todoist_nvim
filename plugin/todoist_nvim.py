@@ -1,6 +1,4 @@
-import sys
-sys.path.append('/Users/sakochikodai/Desktop/todoist_nvim')
-
+import vim
 from rplugin.python3.service.todoist import TodoistService
 
 def get_project(project_name: str):
