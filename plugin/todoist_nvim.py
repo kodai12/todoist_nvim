@@ -5,8 +5,10 @@ from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 def get_user():
     dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
     user = dataaccess.get_user()
-    print(user)
-    print('type of return value is {}'.format(type(user)))
+    print('Id: {}, Name: {}, Email: {}'
+          .format(user.user_id,
+                  user.full_name,
+                  user.email))
 
 
 def get_project(project_name: str):
