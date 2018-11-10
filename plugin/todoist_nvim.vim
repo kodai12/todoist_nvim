@@ -10,7 +10,7 @@ python import todoist_nvim
 "  Function(s)
 " --------------------------------
 function! GetProjects()
-python todoist_nvim.get_projects()
+python todoist_nvim.get_all_projects()
 endfunction
 
 " --------------------------------
