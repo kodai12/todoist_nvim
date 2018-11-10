@@ -9,11 +9,11 @@ python import todoist_nvim
 " --------------------------------
 "  Function(s)
 " --------------------------------
-function! todoist#get_project(project_name)
+function! todoist_nvim#get_project(project_name)
   python todoist_nvim.get_project(vim.eval('a:project_name'))
 endfunction
 
-function! todoist#get_projects()
+function! todoist_nvim#get_projects()
   python todoist_nvim.get_all_projects()
 endfunction
 
