@@ -5,10 +5,13 @@ from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 def get_user():
     dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
     user = dataaccess.get_user()
-    print('Id: {}, Name: {}, Email: {}'
-          .format(user.user_id,
-                  user.full_name,
-                  user.email))
+    if len(user) > 0:
+        print('Id: {}, Name: {}, Email: {}'
+              .format(user.user_id.value,
+                      user.full_name.value,
+                      user.email.value))
+    else:
+        print('User not found.')
 
 
 def get_project(project_name: str):
