@@ -1,28 +1,25 @@
 import vim
-from rplugin.python3.service.todoist import TodoistService
+from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 
+
+def get_user():
+    dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
+    user = dataaccess.get_user()
+    print(user)
+    print('type of return value is {}'.format(type(user)))
 
 def get_project(project_name: str):
-    service = TodoistService(_get_email(), _get_password())
+    dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
     project_name = str(project_name.strip())
-    print(service.get_project(project_name))
+    print(dataaccess.get_project(project_name))
 
 
 def get_all_projects():
-    service = TodoistService(_get_email(), _get_password())
-    projects = service.get_all_projects()
-    for project in projects:
-        print(project.name)
+    pass
 
 
 def get_all_notes():
-    service = TodoistService(_get_email(), _get_password())
-    notes = service.get_all_notes()
-    if len(notes) == 0:
-        print("コメントがありません.")
-    for note in notes:
-        print('content: {}, attached task: {},'
-              .format(note.content, note.task))
+    pass
 
 
 def _get_api_token():

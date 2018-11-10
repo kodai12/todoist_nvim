@@ -9,6 +9,10 @@ python import todoist_nvim
 " --------------------------------
 "  Function(s)
 " --------------------------------
+function! todoist_nvim#get_user()
+  python todoist_nvim.get_user()
+endfunction
+
 function! todoist_nvim#get_project(project_name)
   python todoist_nvim.get_project(vim.eval('a:project_name'))
 endfunction
@@ -24,6 +28,7 @@ endfunction
 " --------------------------------
 "  Expose our commands to the user
 " --------------------------------
+command! TodoistUser call todoist_nvim#get_user()
 command! TodoistProjects call todoist_nvim#get_projects()
 command! -nargs=1 TodoistProject call todoist_nvim#get_project(<f-args>)
 command! TodoistNotes call todoist_nvim#get_all_notes()
