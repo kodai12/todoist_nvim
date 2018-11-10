@@ -8,11 +8,9 @@ def get_user():
     print(user)
     print('type of return value is {}'.format(type(user)))
 
-def get_project(project_name: str):
-    dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
-    project_name = str(project_name.strip())
-    print(dataaccess.get_project(project_name))
 
+def get_project(project_name: str):
+    pass
 
 def get_all_projects():
     pass
