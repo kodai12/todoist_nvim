@@ -1,7 +1,6 @@
-import sys
-sys.path.append('/Users/sakochikodai/Desktop/todoist_nvim')
 
 from rplugin.python3.model.user import UserDomainService
+
 
 class TodoistService:
     def __init__(self, email: str, password: str) -> None:

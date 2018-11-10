@@ -1,5 +1,5 @@
 import vim
-from ..rplugin.python3.service.todoist import TodoistService
+from rplugin.python3.service.todoist import TodoistService
 
 
 def get_project(project_name: str):

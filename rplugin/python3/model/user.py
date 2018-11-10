@@ -1,7 +1,9 @@
+
+from rplugin.python3.model.project import Project
 from pytodoist import todoist
 import sys
 sys.path.append('/Users/sakochikodai/Desktop/todoist_nvim')
-from rplugin.python3.model.project import Project
+
 
 class UserDomainService:
     @staticmethod
