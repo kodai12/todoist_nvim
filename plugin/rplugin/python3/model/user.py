@@ -49,13 +49,13 @@ class User(Entity):
                  premium_status: PremiumStatus,
                  start_day: StartDay,
                  api_token: ApiToken) -> None:
-        self.user_id = user_id,
-        self.email = email,
-        self.password = password,
-        self.full_name = full_name,
-        self.premium_status = premium_status,
-        self.start_day = start_day,
-        self.api_token = api_token,
+        self.user_id = user_id
+        self.email = email
+        self.password = password
+        self.full_name = full_name
+        self.premium_status = premium_status
+        self.start_day = start_day
+        self.api_token = api_token
 
     def get_project(self, project_name: str):
         pass
