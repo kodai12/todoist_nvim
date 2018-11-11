@@ -6,7 +6,9 @@ def get_user():
     dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
     user = dataaccess.get_user()
     if user:  # Entityの存在チェックどうするか
-        print('Id: {}\n, Name: {}\n, Email: {}'
+        print('Id: {}\n\
+              Name: {}\n\
+              Email: {}'
               .format(user.user_id.value,
                       user.full_name.value,
                       user.email.value))
