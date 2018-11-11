@@ -33,6 +33,13 @@ class PytodoistAPIDataSource:
         orig_task = orig_project.add_task(content, date, priority)
         return orig_task
 
+    def complete_task(self,
+                      peoject_name: str,
+                      task_id: int) -> None:
+        orig_task = self._get_task_by_task_id(project_name, task_id)
+        orig_task.complete()
+        return orig_task
+
     def _get_task_by_task_id(self, project_name: str, task_id: int) -> todoist.Task:
         orig_tasks = self.get_all_tasks(project_name)
         orig_task = [task for task in orig_tasks if task['task_id'] == task_id]

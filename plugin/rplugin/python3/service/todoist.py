@@ -45,3 +45,10 @@ class TodoistCommandService:
         orig_task = self.datasource.add_task(project_name, content)
         transfer = TodoistTaskTransfer(orig_task)
         return transfer.to_my_task()
+
+    def copmlete_task(self,
+                      project_name: str,
+                      task_id: int) -> Task:
+        completed_orig_task = self.datasource.complete_task(project_name, task_id)
+        transfer = TodoistTaskTransfer(completed_orig_task)
+        return transfer.to_my_task()
