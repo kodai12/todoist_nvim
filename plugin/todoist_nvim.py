@@ -81,12 +81,12 @@ def complete_task(args: str):
     args = _parse_args(args)
     if 'project' not in args or args['project'] == '':
         args['project'] = 'Inbox'
-    if 'args' not in args or args['args'] == '' or type(args['args']) != 'int':
+    if 'args' not in args or args['args'] == '':
         print('task_idを指定してください')
         return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistCommandService(datasource)
-    completed_task = service.complete(args['project'], args['args'])
+    completed_task = service.complete(args['project'], int(args['args']))
     if completed_task:
         print('タスクを完了しました\nId: {}, タスク: {}, 親プロジェクト: {}'
               .format(completed_task.task_id.value,
