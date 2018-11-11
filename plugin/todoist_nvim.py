@@ -16,11 +16,15 @@ def get_user():
         print('User not found.')
 
 
-def get_project(project_name: str):
+def get_project(args: str):
+    args = _parse_args(args)
+    if 'project' not in args or args['project'] == '':
+        print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
+        return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
-    project = service.get_project(project_name)
-    if project:
+    project = service.get_project(args['project'])
+    if project:  # MEMO 存在チェック
         print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}'
               .format(project.project_id.value,
                       project.name.value,
@@ -44,11 +48,12 @@ def get_all_projects():
 
 def get_all_tasks(args: str):
     args = _parse_args(args)
+    if 'project' not in args or args['project'] == '':
+        print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
+        return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
-    tasks = []
-    if 'project' in args and args['project'] != '':
-        tasks = service.get_all_tasks(args['project'])
+    tasks = service.get_all_tasks(args['project'])
     if len(tasks) == 0:
         print('タスクが見つかりませんでした')
     for task in tasks:
