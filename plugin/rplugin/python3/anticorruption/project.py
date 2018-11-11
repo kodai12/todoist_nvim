@@ -9,11 +9,11 @@ class TodoistProjectTransfer:
 
     def to_my_project(self):
         return create_project(
-            project_id=self.project_id,
-            name=self.name,
-            color=self.color,
-            owner=self.owner,
-            last_updated=self.last_updated,
-            is_deleted=self.is_deleted,
-            is_archived=self.is_archived
+            project_id=self.project.project_id,
+            name=self.project.name,
+            color=self.project.color,
+            owner=self.project.owner,
+            last_updated=self.project.last_updated,
+            is_deleted=self.project.is_deleted,
+            is_archived=self.project.is_archived
         )
