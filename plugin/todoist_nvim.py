@@ -74,8 +74,7 @@ def add_task(args: str):
     service = TodoistCommandService(datasource)
     task = service.add_task(args['project'], args['args'])
     if task:
-        print('タスクを登録しました\n
-              Id: {}\nタスク: {}\n親プロジェクト: {}'
+        print('タスクを登録しました\nId: {}, タスク: {}, 親プロジェクト: {}'
               .format(task.task_id.value,
                       task.content.value,
                       task.parent_project.name.value))
