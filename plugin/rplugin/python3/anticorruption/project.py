@@ -13,7 +13,7 @@ class TodoistProjectTransfer:
             name=self.project.name,
             color=self.project.color,
             owner=self.project.owner,
-            last_updated=self.project.last_updated,
+            #  last_updated=self.project.last_updated,
             is_deleted=self.project.is_deleted,
             is_archived=self.project.is_archived
         )
