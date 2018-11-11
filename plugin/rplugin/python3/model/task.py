@@ -1,5 +1,6 @@
 from rplugin.python3.model.entity import Entity
 from rplugin.python3.model.value import Value
+from rplugin.python3.model.project import Project
 
 
 class TaskId(Value):
@@ -8,11 +9,6 @@ class TaskId(Value):
 
 
 class Content(Value):
-    def __init__(self, value: str) -> None:
-        self.value = value
-
-
-class ParentProject(Value):
     def __init__(self, value: str) -> None:
         self.value = value
 
@@ -36,7 +32,7 @@ class Task(Entity):
     def __init__(self,
                  task_id: TaskId,
                  content: Content,
-                 parent_project: ParentProject,
+                 parent_project: Project,
                  project_id: ProjectId,
                  is_checked: IsChecked,
                  user_id: UserId) -> None:
@@ -50,14 +46,14 @@ class Task(Entity):
 
 def create_task(task_id: int,
                 content: str,
-                parent_project: str,
+                parent_project: Project,
                 project_id: int,
                 is_checked: bool,
                 user_id: int) -> Task:
     return Task(
         task_id=TaskId(task_id),
         content=Content(content),
-        parent_project=ParentProject(parent_project),
+        parent_project=parent_project,
         project_id=ProjectId(project_id),
         is_checked=IsChecked(is_checked),
         user_id=UserId(user_id)
