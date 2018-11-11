@@ -22,7 +22,7 @@ function! todoist_nvim#get_all_projects()
 endfunction
 
 function! todoist_nvim#get_all_tasks(project_name)
-  python todoist_nvim.get_all_projects(vim.eval('a:project_name'))
+  python todoist_nvim.get_all_tasks(vim.eval('a:project_name'))
 endfunction
 
 function! todoist_nvim#get_all_notes()
