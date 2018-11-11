@@ -9,7 +9,7 @@ class TodoistProjectTransfer:
 
     def to_my_project(self):
         return create_project(
-            project_id=self.project.project_id,
+            project_id=self.project.id,
             name=self.project.name,
             color=self.project.color,
             owner=self.project.owner,
@@ -17,3 +17,4 @@ class TodoistProjectTransfer:
             is_deleted=self.project.is_deleted,
             is_archived=self.project.is_archived
         )
+
