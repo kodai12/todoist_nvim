@@ -1,3 +1,5 @@
+from itertools import ifilter
+
 from pytodoist import todoist
 
 
@@ -30,3 +32,11 @@ class PytodoistAPIDataSource:
         orig_project = self.get_project(project_name)
         orig_task = orig_project.add_task(content, date, priority)
         return orig_task
+
+    def _get_task_by_task_id(self, project_name: str, task_id: int) -> todoist.Task:
+        orig_tasks = self.get_all_tasks(project_name)
+        orig_task = [task for task in orig_tasks if task['task_id'] == task_id]
+        if len(orig_task) == 0:
+            return None  # MEMO 例外処理を追加する
+        return orig_task[0]
+
