@@ -21,11 +21,10 @@ def get_project(project_name: str):
     service = TodoistService(datasource)
     project = service.get_project(project_name)
     if project:
-        print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}\nアーカイブ: {}'
+        print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}'
               .format(project.project_id.value,
                       project.name.value,
-                      '削除済み' if project.is_deleted.value else '',
-                      'アーカイブ済み' if project.is_archived.value else ''))
+                      '削除済み' if project.is_deleted.value else ''))
     else:
         print('プロジェクトが見つかりませんでした')
 
