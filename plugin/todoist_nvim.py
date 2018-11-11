@@ -36,8 +36,7 @@ def get_all_projects():
     if len(projects) == 0:
         print('プロジェクトが見つかりませんでした')
     for project in projects:
-        print('Id: {}\nプロジェクト名: {}\n削除ステータス: {} \
-              ==========================='
+        print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}\n============================='
               .format(project.project_id.value,
                       project.name.value,
                       '削除済み' if project.is_deleted.value else '削除されていません'))
