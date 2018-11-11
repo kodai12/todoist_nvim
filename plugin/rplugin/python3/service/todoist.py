@@ -15,3 +15,6 @@ class TodoistService:
 
     def get_all_projects(self) -> list:
         return self.datasouce.get_all_projects()
+
+    def get_all_tasks(self, project_name: str) -> list:
+        return self.datasouce.get_all_tasks(project_name)

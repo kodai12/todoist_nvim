@@ -17,8 +17,12 @@ function! todoist_nvim#get_project(project_name)
   python todoist_nvim.get_project(vim.eval('a:project_name'))
 endfunction
 
-function! todoist_nvim#get_projects()
+function! todoist_nvim#get_all_projects()
   python todoist_nvim.get_all_projects()
+endfunction
+
+function! todoist_nvim#get_all_tasks(project_name)
+  python todoist_nvim.get_all_projects(vim.eval('a:project_name'))
 endfunction
 
 function! todoist_nvim#get_all_notes()
@@ -29,6 +33,7 @@ endfunction
 "  Expose our commands to the user
 " --------------------------------
 command! TodoistUser call todoist_nvim#get_user()
-command! TodoistProjects call todoist_nvim#get_projects()
 command! -nargs=1 TodoistProject call todoist_nvim#get_project(<f-args>)
+command! TodoistProjects call todoist_nvim#get_all_projects()
+command! -nargs=1 TodoistTasks call todoist_nvim#get_all_tasks(<f-args>)
 command! TodoistNotes call todoist_nvim#get_all_notes()

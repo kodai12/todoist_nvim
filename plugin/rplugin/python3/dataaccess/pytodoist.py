@@ -3,6 +3,7 @@ from pytodoist import todoist
 from rplugin.python3.anticorruption.user import TodoistUserTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectListTransfer
+from rplugin.python3.anticorruption.task import TodoistTaskListTransfer
 
 from rplugin.python3.model.user import User
 from rplugin.python3.model.project import Project
@@ -29,3 +30,10 @@ class PytodoistAPIDataSource:
         orig_projects = orig_user.get_projects()
         transfer = TodoistProjectListTransfer(orig_projects)
         return transfer.to_my_projects()
+
+    def get_all_tasks(self, project_name: str) -> list:
+        orig_user = todoist.login(self.email, self.password)
+        orig_project = orig_user.get_project(project_name)
+        orig_tasks = orig_project.get_tasks()
+        transfer = TodoistTaskListTransfer(orig_tasks)
+        return transfer.to_my_tasks()

@@ -42,6 +42,19 @@ def get_all_projects():
                       '削除済み' if project.is_deleted.value else '削除されていません'))
 
 
+def get_all_tasks(project_name: str):
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistService(datasource)
+    tasks = service.get_all_tasks()
+    if len(tasks) == 0:
+        print('タスクが見つかりませんでした')
+    for task in tasks:
+        print('Id: {}\nタスク: {}\n親プロジェクト: {}\n============================='
+              .format(task.task_id.value,
+                      task.content.value,
+                      task.project.value))
+
+
 def get_all_notes():
     pass
 
