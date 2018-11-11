@@ -57,12 +57,6 @@ class User(Entity):
         self.start_day = start_day
         self.api_token = api_token
 
-    def get_project(self, project_name: str):
-        pass
-
-    def get_all_project(self):
-        pass
-
 
 def create_user(user_id: int,
                 email: str,

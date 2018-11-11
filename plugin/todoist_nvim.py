@@ -7,7 +7,7 @@ def get_user():
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
     user = service.get_user()
-    if user:  # TODO Entityの存在チェックどうするか
+    if user:  # MEMO Entityの存在チェックどうするか
         print('Id: {}\nユーザー名 {}\nEmail: {}'
               .format(user.user_id.value,
                       user.full_name.value,

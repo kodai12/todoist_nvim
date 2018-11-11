@@ -7,10 +7,6 @@ class TodoistUserTransfer:
     def __init__(self, user: todoist.User) -> None:
         self.user = user
 
-    # convert処理(必要であれば)
-
-    # to_my_userメソッド(自分で定義したUserクラスへ変換)
-    # to_my_userメソッドはUserクラスが持つファクトリを呼び出す
     def to_my_user(self):
         return create_user(
             user_id=self.user.id,
