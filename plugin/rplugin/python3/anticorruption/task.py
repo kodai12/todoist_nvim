@@ -12,11 +12,11 @@ class TodoistTaskListTransfer:
         tasks: List(Task) = []
         for orig_task in self.tasks:
             tasks.append(create_task(
-                task_id = self.task.id,
-                content = self.task.content,
-                project = self.task.project,
-                project_id = self.task.project_id,
-                is_checked = self.task.checked,
-                user_id = self.task.user_id
+                task_id=orig_task.id,
+                content=orig_task.content,
+                project=orig_task.project,
+                project_id=orig_task.project_id,
+                is_checked=orig_task.checked,
+                user_id=orig_task.user_id
             ))
         return tasks
