@@ -7,7 +7,7 @@ from rplugin.python3.model.task import Task
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
 
 
-class TodoistTaskListTransfer:
+class TodoistTaskTransfer:
     def __init__(self, task: todoist.Task) -> None:
         self.task = task
 
