@@ -22,7 +22,7 @@ class TodoistProjectTransfer:
 
 
 class TodoistProjectListTransfer:
-    def __init__(self, projects: List(todoist.Project)) -> None:
+    def __init__(self, projects: list) -> None:
         self.projects = projects
 
     def to_my_projects(self) -> List(Project):
