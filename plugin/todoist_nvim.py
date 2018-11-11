@@ -1,11 +1,11 @@
 import vim
 from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
-from rplugin.python3.service.todoist import TodoistService
+from rplugin.python3.service.todoist import TodoistQueryService
 
 
 def get_user():
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
-    service = TodoistService(datasource)
+    service = TodoistQueryService(datasource)
     user = service.get_user()
     if user:  # MEMO Entityの存在チェックどうするか
         print('Id: {}\nユーザー名 {}\nEmail: {}'
@@ -22,7 +22,7 @@ def get_project(args: str):
         print('プロジェクト名を入力してください ex) :TodoistProject +Inbox')
         return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
-    service = TodoistService(datasource)
+    service = TodoistQueryService(datasource)
     project = service.get_project(args['project'])
     if project:  # MEMO 存在チェック
         print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}'
@@ -35,7 +35,7 @@ def get_project(args: str):
 
 def get_all_projects():
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
-    service = TodoistService(datasource)
+    service = TodoistQueryService(datasource)
     projects = service.get_all_projects()
     if len(projects) == 0:
         print('プロジェクトが見つかりませんでした')
@@ -52,7 +52,7 @@ def get_all_tasks(args: str):
         print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
         return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
-    service = TodoistService(datasource)
+    service = TodoistQueryService(datasource)
     tasks = service.get_all_tasks(args['project'])
     if len(tasks) == 0:
         print('タスクが見つかりませんでした')

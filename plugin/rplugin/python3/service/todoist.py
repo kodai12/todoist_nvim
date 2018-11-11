@@ -8,26 +8,31 @@ from rplugin.python3.anticorruption.project import TodoistProjectListTransfer
 from rplugin.python3.anticorruption.task import TodoistTaskListTransfer
 
 
-class TodoistService:
-    def __init__(self, datasouce: PytodoistAPIDataSource):
-        self.datasouce = datasouce
+class TodoistQueryService:
+    def __init__(self, datasource: PytodoistAPIDataSource):
+        self.datasource = datasource
 
     def get_user(self) -> User:
-        orig_user = self.datasouce.get_user()
+        orig_user = self.datasource.get_user()
         transfer = TodoistUserTransfer(orig_user)
         return transfer.to_my_user()
 
     def get_project(self, project_name: str) -> Project:
-        orig_project = self.datasouce.get_project(project_name)
+        orig_project = self.datasource.get_project(project_name)
         transfer = TodoistProjectTransfer(orig_project)
         return transfer.to_my_project()
 
     def get_all_projects(self) -> list:
-        orig_projects = self.datasouce.get_all_projects()
+        orig_projects = self.datasource.get_all_projects()
         transfer = TodoistProjectListTransfer(orig_projects)
         return transfer.to_my_projects()
 
     def get_all_tasks(self, project_name: str) -> list:
-        orig_tasks = self.datasouce.get_all_tasks(project_name)
+        orig_tasks = self.datasource.get_all_tasks(project_name)
         transfer = TodoistTaskListTransfer(orig_tasks)
         return transfer.to_my_tasks()
+
+
+class TodoistCommandService:
+    def __init__(self, datasource: PytodoistAPIDataSource):
+        self.datasource = datasource
