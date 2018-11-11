@@ -14,7 +14,7 @@ class TodoistTaskListTransfer:
             tasks.append(create_task(
                 task_id=orig_task.id,
                 content=orig_task.content,
-                project=orig_task.project,
+                parent_project=orig_task.project,
                 project_id=orig_task.project_id,
                 is_checked=orig_task.checked,
                 user_id=orig_task.user_id

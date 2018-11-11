@@ -52,7 +52,7 @@ def get_all_tasks(project_name: str):
         print('Id: {}\nタスク: {}\n親プロジェクト: {}\n============================='
               .format(task.task_id.value,
                       task.content.value,
-                      task.project.value))
+                      task.parent_project.value))
 
 
 def get_all_notes():
