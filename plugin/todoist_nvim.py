@@ -42,10 +42,13 @@ def get_all_projects():
                       '削除済み' if project.is_deleted.value else '削除されていません'))
 
 
-def get_all_tasks(project_name: str):
+def get_all_tasks(args: str):
+    args = _parse_args(args)
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
-    tasks = service.get_all_tasks(project_name)
+    tasks = []
+    if 'project' in args and args.project != '':
+        tasks = service.get_all_tasks(args.project)
     if len(tasks) == 0:
         print('タスクが見つかりませんでした')
     for task in tasks:
@@ -83,3 +86,22 @@ def _get_password():
     if password_exists:
         return vim.eval('g:todoist_password')
 
+
+def _parse_args(arg_str: str) -> object:
+    arg_list: list = arg_str.split()
+    project_symbol = '+'
+    tag_symbol = '@'
+    result = {
+        'args': '',
+        'project': '',
+        'tag': '',
+    }
+    for arg in arg_list:
+        if arg.find(project_symbol) > -1:
+            result.project = arg[1:]
+        if arg.find(tag_symbol) > -1:
+            result.tag = arg[1:]
+        else:
+            result.args = arg
+
+    return result

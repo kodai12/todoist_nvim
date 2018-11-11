@@ -1,5 +1,5 @@
 " --------------------------------
-" Add our plugin to the path
+" Add plugins
 " --------------------------------
 python import sys
 python import vim
@@ -7,7 +7,7 @@ python sys.path.append(vim.eval('expand("<sfile>:p:h")'))
 python import todoist_nvim
 
 " --------------------------------
-"  Function(s)
+"  Define functions
 " --------------------------------
 function! todoist_nvim#get_user()
   python todoist_nvim.get_user()
@@ -30,10 +30,10 @@ function! todoist_nvim#get_all_notes()
 endfunction
 
 " --------------------------------
-"  Expose our commands to the user
+"  Expose commands
 " --------------------------------
 command! TodoistUser call todoist_nvim#get_user()
-command! -nargs=1 TodoistProject call todoist_nvim#get_project(<f-args>)
+command! -nargs=1 TodoistProject call todoist_nvim#get_project(<q-args>)
 command! TodoistProjects call todoist_nvim#get_all_projects()
-command! -nargs=1 TodoistTasks call todoist_nvim#get_all_tasks(<f-args>)
+command! -nargs=1 TodoistTasks call todoist_nvim#get_all_tasks(<q-args>)
 command! TodoistNotes call todoist_nvim#get_all_notes()
