@@ -2,8 +2,9 @@ from pytodoist import todoist
 
 from rplugin.python3.model.project import create_project
 
+
 class TodoistProjectTransfer:
-    def __init__(self, project: todoist.Projec) -> None:
+    def __init__(self, project: todoist.Project) -> None:
         self.project = project
 
     def to_my_project(self):

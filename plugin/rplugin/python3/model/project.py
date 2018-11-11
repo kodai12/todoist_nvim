@@ -3,6 +3,7 @@ from datetime import datetime
 from rplugin.python3.model.entity import Entity
 from rplugin.python3.model.value import Value
 
+
 class ProjectId(Value):
     def __init__(self, value: int) -> None:
         self.value = value
@@ -54,6 +55,7 @@ class Project(Entity):
         self.last_updated = last_updated
         self.is_deleted = is_deleted
         self.is_archived = is_archived
+
 
 def create_project(project_id: int,
                    name: str,
