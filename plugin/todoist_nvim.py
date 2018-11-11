@@ -86,7 +86,7 @@ def complete_task(args: str):
         return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistCommandService(datasource)
-    completed_task = service.complete(args['project'], int(args['args']))
+    completed_task = service.complete_task(args['project'], int(args['args']))
     if completed_task:
         print('タスクを完了しました\nId: {}, タスク: {}, 親プロジェクト: {}'
               .format(completed_task.task_id.value,
