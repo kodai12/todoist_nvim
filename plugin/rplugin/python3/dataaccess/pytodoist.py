@@ -1,5 +1,3 @@
-from itertools import ifilter
-
 from pytodoist import todoist
 
 
