@@ -1,6 +1,7 @@
 import vim
 from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 from rplugin.python3.service.todoist import TodoistQueryService
+from rplugin.python3.service.todoist import TodoistCommandService
 
 
 def get_user():
