@@ -37,8 +37,8 @@ endfunction
 "  Expose commands
 " --------------------------------
 command! TodoistUser call todoist_nvim#get_user()
-command! -nargs=1 TodoistProject call todoist_nvim#get_project(<q-args>)
+command! -nargs=? TodoistProject call todoist_nvim#get_project(<q-args>)
 command! TodoistProjects call todoist_nvim#get_all_projects()
-command! -nargs=1 TodoistTasks call todoist_nvim#get_all_tasks(<q-args>)
+command! -nargs=? TodoistTasks call todoist_nvim#get_all_tasks(<q-args>)
 command! -nargs=1 TodoistAddTask call todoist_nvim#add_task(<q-args>)
 command! TodoistNotes call todoist_nvim#get_all_notes()

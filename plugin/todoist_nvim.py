@@ -121,6 +121,9 @@ def _parse_args(arg_str: str) -> object:
         if _arg.find(_tag_symbol) > -1:
             result['tag'] = _arg[1:]
         else:
-            result['args'] += _arg
+            # スペースをつけて複数のargsを連結
+            result['args'] += '{} '.format(_arg)
 
+    # result['args']の最後のスペースはtrim
+    result['args'].strip()
     return result
