@@ -54,7 +54,7 @@ class Project(Entity):
         self.owner = owner
         #  self.last_updated = last_updated
         self.is_deleted = is_deleted
-        self.is_archived = is_archived
+        #  self.is_archived = is_archived
 
 
 def create_project(project_id: int,
@@ -62,8 +62,8 @@ def create_project(project_id: int,
                    color: str,
                    owner: str,
                    #  last_updated: datetime,
-                   is_deleted: str,
-                   is_archived: str) -> Project:
+                   is_deleted: str) -> Project:
+                   #  is_archived: str) -> Project:
     return Project(
         project_id=ProjectId(project_id),
         name=Name(name),
@@ -71,5 +71,5 @@ def create_project(project_id: int,
         owner=Owner(owner),
         #  last_updated=LastUpdated(last_updated),
         is_deleted=IsDeleted(is_deleted),
-        is_archive=IsArchived(is_archived)
+        #  is_archive=IsArchived(is_archived)
     )

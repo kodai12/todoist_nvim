@@ -15,6 +15,6 @@ class TodoistProjectTransfer:
             owner=self.project.owner,
             #  last_updated=self.project.last_updated,
             is_deleted=self.project.is_deleted,
-            is_archived=self.project.is_archived
+            #  is_archived=self.project.is_archived
         )
 
