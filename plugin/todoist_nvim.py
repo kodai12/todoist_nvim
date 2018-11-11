@@ -24,13 +24,23 @@ def get_project(project_name: str):
         print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}'
               .format(project.project_id.value,
                       project.name.value,
-                      '削除済み' if project.is_deleted.value else ''))
+                      '削除済み' if project.is_deleted.value else '削除されていません'))
     else:
         print('プロジェクトが見つかりませんでした')
 
 
 def get_all_projects():
-    pass
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistService(datasource)
+    projects = service.get_all_projects()
+    if len(projects) == 0:
+        print('プロジェクトが見つかりませんでした')
+    for project in projects:
+        print('Id: {}\nプロジェクト名: {}\n削除ステータス: {} \
+              ==========================='
+              .format(project.project_id.value,
+                      project.name.value,
+                      '削除済み' if project.is_deleted.value else '削除されていません'))
 
 
 def get_all_notes():
