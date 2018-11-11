@@ -1,10 +1,12 @@
 from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 from rplugin.python3.model.user import User
 from rplugin.python3.model.project import Project
+from rplugin.python3.model.task import Task
 
 from rplugin.python3.anticorruption.user import TodoistUserTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectListTransfer
+from rplugin.python3.anticorruption.task import TodoistTaskTransfer
 from rplugin.python3.anticorruption.task import TodoistTaskListTransfer
 
 
@@ -36,3 +38,10 @@ class TodoistQueryService:
 class TodoistCommandService:
     def __init__(self, datasource: PytodoistAPIDataSource):
         self.datasource = datasource
+
+    def add_task(self,
+                 project_name: str,
+                 content: str) -> Task:
+        orig_task = self.datasource.add_task(project_name, content)
+        transfer = TodoistTaskTransfer(orig_task)
+        return transfer.to_my_task()

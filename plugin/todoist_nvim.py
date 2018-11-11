@@ -62,6 +62,23 @@ def get_all_tasks(args: str):
                       task.content.value,
                       task.parent_project.name.value))
 
+def add_task(args: str):
+    args = _parse_args(args)
+    if 'project' not in args or args['project'] == '':
+        print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
+        return
+    if 'args' not in args or args['args'] == '':
+        print('タスクが入力されていません')
+        return
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistCommandService(datasource)
+    task = service.add_task(args['project'], args['args'])
+    if task:
+        print('タスクを登録しました\n
+              Id: {}\nタスク: {}\n親プロジェクト: {}'
+              .format(task.task_id.value,
+                      task.content.value,
+                      task.parent_project.name.value))
 
 def get_all_notes():
     pass

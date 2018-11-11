@@ -13,16 +13,20 @@ function! todoist_nvim#get_user()
   python todoist_nvim.get_user()
 endfunction
 
-function! todoist_nvim#get_project(project_name)
-  python todoist_nvim.get_project(vim.eval('a:project_name'))
+function! todoist_nvim#get_project(args)
+  python todoist_nvim.get_project(vim.eval('a:args'))
 endfunction
 
 function! todoist_nvim#get_all_projects()
   python todoist_nvim.get_all_projects()
 endfunction
 
-function! todoist_nvim#get_all_tasks(project_name)
-  python todoist_nvim.get_all_tasks(vim.eval('a:project_name'))
+function! todoist_nvim#get_all_tasks(args)
+  python todoist_nvim.get_all_tasks(vim.eval('a:args'))
+endfunction
+
+function! todoist_nvim#add_task(args)
+  python todoist_nvim.add_task(vim.eval('a:args'))
 endfunction
 
 function! todoist_nvim#get_all_notes()
@@ -36,4 +40,5 @@ command! TodoistUser call todoist_nvim#get_user()
 command! -nargs=1 TodoistProject call todoist_nvim#get_project(<q-args>)
 command! TodoistProjects call todoist_nvim#get_all_projects()
 command! -nargs=1 TodoistTasks call todoist_nvim#get_all_tasks(<q-args>)
+command! -nargs=1 TodoistAddTask call todoist_nvim#add_task(<q-args>)
 command! TodoistNotes call todoist_nvim#get_all_notes()
