@@ -19,7 +19,20 @@ def get_user():
 
 
 def get_project(project_name: str):
-    pass
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistService(datasource)
+    project = service.project(project_name)
+    if project:
+        print('Id: {}\n\
+                プロジェクト名: {}\n\
+                削除ステータス: {}\n\
+                アーカイブ: {}'
+              .format(project.project_id.value,
+                      project.name.value,
+                      '削除済み' if project.is_deleted.value else '',
+                      'アーカイブ済み' if project.is_archived.value else ''))
+    else:
+        print('プロジェクトが見つかりませんでした')
 
 
 def get_all_projects():
