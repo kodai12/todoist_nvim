@@ -1,5 +1,4 @@
 from pytodoist import todoist
-from typing import List
 
 from rplugin.python3.anticorruption.user import TodoistUserTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
@@ -25,7 +24,7 @@ class PytodoistAPIDataSource:
         transfer = TodoistProjectTransfer(orig_project)
         return transfer.to_my_project()
 
-    def get_all_projects(self) -> List(Project):
+    def get_all_projects(self) -> list:
         orig_user = todoist.login(self.email, self.password)
         orig_projects = orig_user.get_projects()
         transfer = TodoistProjectListTransfer(orig_projects)

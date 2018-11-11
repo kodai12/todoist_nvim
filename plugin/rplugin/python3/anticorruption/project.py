@@ -25,7 +25,7 @@ class TodoistProjectListTransfer:
     def __init__(self, projects: list) -> None:
         self.projects = projects
 
-    def to_my_projects(self) -> List(Project):
+    def to_my_projects(self) -> list:
         projects: List(Project) = []
         for orig_project in self.projects:
             projects.append(create_project(
