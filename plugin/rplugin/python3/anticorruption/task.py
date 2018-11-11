@@ -15,12 +15,12 @@ class TodoistTaskTransfer:
         _project_transfer = TodoistProjectTransfer(self.task.project)
         _parent_project = _project_transfer.to_my_project()
         return create_task(
-            task_id=orig_task.id,
-            content=orig_task.content,
+            task_id=self.task.id,
+            content=self.task.content,
             parent_project=_parent_project,
-            project_id=orig_task.project_id,
-            is_checked=orig_task.checked,
-            user_id=orig_task.user_id
+            project_id=self.task.project_id,
+            is_checked=self.task.checked,
+            user_id=self.task.user_id
         )
 
 
