@@ -46,8 +46,8 @@ class Project(Entity):
                  color: Color,
                  owner: Owner,
                  #  last_updated: LastUpdated,
-                 is_deleted: IsDeleted,
-                 is_archived: IsArchived) -> None:
+                 is_deleted: IsDeleted) -> None:
+                 #  is_archived: IsArchived) -> None:
         self.project_id = project_id
         self.name = name
         self.color = color
