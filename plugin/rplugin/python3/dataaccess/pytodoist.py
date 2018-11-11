@@ -34,11 +34,18 @@ class PytodoistAPIDataSource:
     def complete_task(self,
                       project_name: str,
                       task_id: int) -> None:
-        orig_task = self.get_task_by_task_id(project_name, task_id)
+        orig_task = self._get_task_by_task_id(project_name, task_id)
         orig_task.complete()
         return orig_task
 
-    def get_task_by_task_id(self, project_name: str, task_id: int) -> todoist.Task:
+    def delete_task(self,
+                    project_name: str,
+                    task_id: int) -> None:
+        orig_task = self._get_task_by_task_id(project_name, task_id)
+        orig_task.delete()
+        return orig_task
+
+    def _get_task_by_task_id(self, project_name: str, task_id: int) -> todoist.Task:
         orig_tasks = self.get_all_tasks(project_name)
         orig_task = [task for task in orig_tasks if task.__dict__['id'] == task_id]
         if len(orig_task) == 0:

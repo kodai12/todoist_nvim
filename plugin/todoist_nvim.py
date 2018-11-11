@@ -93,6 +93,22 @@ def complete_task(args: str):
                       completed_task.content.value,
                       completed_task.parent_project.name.value))
 
+def delete_task(args: str):
+    args = _parse_args(args)
+    if 'project' not in args or args['project'] == '':
+        args['project'] = 'Inbox'
+    if 'args' not in args or args['args'] == '':
+        print('task_idを指定してください')
+        return
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistCommandService(datasource)
+    deleted_task = service.delete_task(args['project'], int(args['args']))
+    if deleted_task:
+        print('タスクを削除しました\nId: {}, タスク: {}, 親プロジェクト: {}'
+              .format(deleted_task.task_id.value,
+                      deleted_task.content.value,
+                      deleted_task.parent_project.name.value))
+
 def get_all_notes():
     pass
 
