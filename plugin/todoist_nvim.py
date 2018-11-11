@@ -88,20 +88,20 @@ def _get_password():
 
 
 def _parse_args(arg_str: str) -> object:
-    arg_list: list = arg_str.split()
-    project_symbol = '+'
-    tag_symbol = '@'
+    _arg_list: list = arg_str.split()
+    _project_symbol = '+'
+    _tag_symbol = '@'
     result = {
         'args': '',
         'project': '',
         'tag': '',
     }
-    for arg in arg_list:
-        if arg.find(project_symbol) > -1:
-            result.project = arg[1:]
-        if arg.find(tag_symbol) > -1:
-            result.tag = arg[1:]
+    for _arg in _arg_list:
+        if _arg.find(_project_symbol) > -1:
+            result['project'] = _arg[1:]
+        if _arg.find(_tag_symbol) > -1:
+            result['tag'] = _arg[1:]
         else:
-            result.args = arg
+            result['args'] = _arg
 
     return result
