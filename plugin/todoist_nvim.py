@@ -21,7 +21,7 @@ def get_user():
 def get_project(project_name: str):
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
-    project = service.project(project_name)
+    project = service.get_project(project_name)
     if project:
         print('Id: {}\n\
                 プロジェクト名: {}\n\
