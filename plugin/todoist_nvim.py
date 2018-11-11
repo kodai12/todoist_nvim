@@ -49,6 +49,7 @@ def get_all_tasks(project_name: str):
     if len(tasks) == 0:
         print('タスクが見つかりませんでした')
     for task in tasks:
+        print(vars(task))
         print('Id: {}\nタスク: {}\n親プロジェクト: {}\n============================='
               .format(task.task_id.value,
                       task.content.value,
