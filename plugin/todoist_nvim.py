@@ -19,7 +19,7 @@ def get_user():
 def get_project(args: str):
     args = _parse_args(args)
     if 'project' not in args or args['project'] == '':
-        print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
+        print('プロジェクト名を入力してください ex) :TodoistProject +Inbox')
         return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
