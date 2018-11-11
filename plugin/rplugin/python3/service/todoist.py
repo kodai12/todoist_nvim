@@ -1,28 +1,11 @@
-
-from rplugin.python3.model.user import UserDomainService
+from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
+from rplugin.python3.model.user import User
 
 
 class TodoistService:
-    def __init__(self, email: str, password: str) -> None:
-        self.email = email
-        self.password = password
+    def __init__(self, datasouce: PytodoistAPIDataSource):
+        self.datasouce = datasouce
 
-    def get_project(self, project_name: str):
-        user = UserDomainService.get_original_user(self.email, self.password)
-        return user.get_project(project_name)
+    def get_user(self) -> User:
+        return self.datasouce.get_user()
 
-    def get_all_projects(self):
-        user = UserDomainService.get_original_user(self.email, self.password)
-        return user.get_projects()
-
-    def get_all_notes(self):
-        user = UserDomainService.get_original_user(self.email, self.password)
-        return user.get_notes()
-
-    def get_completed_tasks(self):
-        user = UserDomainService.get_original_user(self.email, self.password)
-        return user.get_completed_tasks()
-
-    def get_productivity_stats(self):
-        user = UserDomainService.get_original_user(self.email, self.password)
-        return user.get_productivity_stats()

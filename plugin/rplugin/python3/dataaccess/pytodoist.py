@@ -9,8 +9,8 @@ class PytodoistAPIDataSource:
         self.password = password
 
     def get_user(self) -> todoist.User:
-        response = todoist.login(self.email, self.password)
-        transfer = TodoistUserTransfer(response)
+        orig_user = todoist.login(self.email, self.password)
+        transfer = TodoistUserTransfer(orig_user)
         return transfer.to_my_user()
 
     def get_project(self, project_name: str) -> todoist.Project:

@@ -1,10 +1,12 @@
 import vim
 from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
+from rplugin.python3.service.todoist import TodoistService
 
 
 def get_user():
-    dataaccess = PytodoistAPIDataSource(_get_email(), _get_password())
-    user = dataaccess.get_user()
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistService(datasource)
+    user = service.get_user()
     if user:  # Entityの存在チェックどうするか
         print('Id: {}\n\
               Name: {}\n\
