@@ -47,8 +47,8 @@ def get_all_tasks(args: str):
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
     tasks = []
-    if 'project' in args and args.project != '':
-        tasks = service.get_all_tasks(args.project)
+    if 'project' in args and args['project'] != '':
+        tasks = service.get_all_tasks(args['project'])
     if len(tasks) == 0:
         print('タスクが見つかりませんでした')
     for task in tasks:
