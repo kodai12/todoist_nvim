@@ -7,10 +7,8 @@ def get_user():
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistService(datasource)
     user = service.get_user()
-    if user:  # Entityの存在チェックどうするか
-        print('Id: {}\n\
-              Name: {}\n\
-              Email: {}'
+    if user:  # TODO Entityの存在チェックどうするか
+        print('Id: {}\nユーザー名 {}\nEmail: {}'
               .format(user.user_id.value,
                       user.full_name.value,
                       user.email.value))
@@ -23,10 +21,7 @@ def get_project(project_name: str):
     service = TodoistService(datasource)
     project = service.get_project(project_name)
     if project:
-        print('Id: {}\n\
-                プロジェクト名: {}\n\
-                削除ステータス: {}\n\
-                アーカイブ: {}'
+        print('Id: {}\nプロジェクト名: {}\n削除ステータス: {}\nアーカイブ: {}'
               .format(project.project_id.value,
                       project.name.value,
                       '削除済み' if project.is_deleted.value else '',
