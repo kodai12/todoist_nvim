@@ -32,7 +32,7 @@ class PytodoistAPIDataSource:
         return orig_task
 
     def complete_task(self,
-                      peoject_name: str,
+                      project_name: str,
                       task_id: int) -> None:
         orig_task = self._get_task_by_task_id(project_name, task_id)
         orig_task.complete()
