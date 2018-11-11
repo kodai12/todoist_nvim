@@ -20,8 +20,7 @@ def get_user():
 def get_project(args: str):
     args = _parse_args(args)
     if 'project' not in args or args['project'] == '':
-        print('プロジェクト名を入力してください ex) :TodoistProject +Inbox')
-        return
+        args['project'] = 'Inbox'
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistQueryService(datasource)
     project = service.get_project(args['project'])
@@ -50,8 +49,7 @@ def get_all_projects():
 def get_all_tasks(args: str):
     args = _parse_args(args)
     if 'project' not in args or args['project'] == '':
-        print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
-        return
+        args['project'] = 'Inbox'
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistQueryService(datasource)
     tasks = service.get_all_tasks(args['project'])
@@ -66,8 +64,7 @@ def get_all_tasks(args: str):
 def add_task(args: str):
     args = _parse_args(args)
     if 'project' not in args or args['project'] == '':
-        print('プロジェクト名を入力してください ex) :TodoistTasks +Inbox')
-        return
+        args['project'] = 'Inbox'
     if 'args' not in args or args['args'] == '':
         print('タスクが入力されていません')
         return
@@ -124,6 +121,6 @@ def _parse_args(arg_str: str) -> object:
         if _arg.find(_tag_symbol) > -1:
             result['tag'] = _arg[1:]
         else:
-            result['args'] = _arg
+            result['args'] += _arg
 
     return result
