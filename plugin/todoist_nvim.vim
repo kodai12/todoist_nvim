@@ -4,7 +4,7 @@
 python import sys
 python import vim
 python sys.path.append(vim.eval('expand("<sfile>:p:h")'))
-python import todoist_nvim
+python import ...explugin/todoist_nvim
 
 " --------------------------------
 "  Define functions

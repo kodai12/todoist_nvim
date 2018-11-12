@@ -1,4 +1,4 @@
-from pytodoist import todoist
+from ...explugin/pytodoist import todoist
 
 from rplugin.python3.model.user import create_user
 
