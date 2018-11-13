@@ -1,6 +1,7 @@
 from rplugin.python3.domain.model.entity import Entity
 from rplugin.python3.domain.model.value import Value
 from rplugin.python3.domain.model.project import Project
+from rplugin.python3.domain.model.user import UserId
 
 
 class TaskId(Value):
@@ -23,11 +24,6 @@ class IsChecked(Value):
         self.value = value
 
 
-class UserId(Value):
-    def __init__(self, value: int) -> None:
-        self.value = value
-
-
 class Task(Entity):
     def __init__(self,
                  task_id: TaskId,
@@ -42,19 +38,3 @@ class Task(Entity):
         self.project_id = project_id
         self.is_checked = is_checked
         self.user_id = user_id
-
-
-def create_task(task_id: int,
-                content: str,
-                parent_project: Project,
-                project_id: int,
-                is_checked: bool,
-                user_id: int) -> Task:
-    return Task(
-        task_id=TaskId(task_id),
-        content=Content(content),
-        parent_project=parent_project,
-        project_id=ProjectId(project_id),
-        is_checked=IsChecked(is_checked),
-        user_id=UserId(user_id)
-    )

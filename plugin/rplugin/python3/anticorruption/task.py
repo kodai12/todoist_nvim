@@ -2,8 +2,8 @@ from pytodoist import todoist
 
 from typing import List
 
-from rplugin.python3.domain.model.task import create_task
 from rplugin.python3.domain.model.task import Task
+from rplugin.python3.domain.factory.task import create_task
 
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
 
@@ -12,7 +12,7 @@ class TodoistTaskTransfer:
     def __init__(self, task: todoist.Task) -> None:
         self.task = task
 
-    def to_my_task(self) -> list:
+    def to_my_task(self) -> Task:
         _project_transfer = TodoistProjectTransfer(self.task.project)
         _parent_project = _project_transfer.to_my_project()
         return create_task(
