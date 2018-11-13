@@ -30,7 +30,7 @@ class IsPremium(Value):
 
 
 class PremiumUntil(Value):
-    def __init__(self, vallue: datetime):
+    def __init__(self, value: datetime) -> None:
         self.value = value
 
 
