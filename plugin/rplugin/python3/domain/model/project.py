@@ -45,31 +45,9 @@ class Project(Entity):
                  name: Name,
                  color: Color,
                  owner: Owner,
-                 #  last_updated: LastUpdated,
                  is_deleted: IsDeleted) -> None:
-                 #  is_archived: IsArchived) -> None:
         self.project_id = project_id
         self.name = name
         self.color = color
         self.owner = owner
-        #  self.last_updated = last_updated
         self.is_deleted = is_deleted
-        #  self.is_archived = is_archived
-
-
-def create_project(project_id: int,
-                   name: str,
-                   color: str,
-                   owner: str,
-                   #  last_updated: datetime,
-                   is_deleted: str) -> Project:
-                   #  is_archived: str) -> Project:
-    return Project(
-        project_id=ProjectId(project_id),
-        name=Name(name),
-        color=Color(color),
-        owner=Owner(owner),
-        #  last_updated=LastUpdated(last_updated),
-        is_deleted=IsDeleted(is_deleted),
-        #  is_archive=IsArchived(is_archived)
-    )

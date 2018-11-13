@@ -2,8 +2,8 @@ from pytodoist import todoist
 
 from typing import List
 
-from rplugin.python3.domain.model.project import create_project
 from rplugin.python3.domain.model.project import Project
+from rplugin.python3.domain.factory.project import create_project
 
 
 class TodoistProjectTransfer:
@@ -16,9 +16,7 @@ class TodoistProjectTransfer:
             name=self.project.name,
             color=self.project.color,
             owner=self.project.owner,
-            #  last_updated=self.project.last_updated,
             is_deleted=self.project.is_deleted,
-            #  is_archived=self.project.is_archived
         )
 
 
@@ -34,8 +32,6 @@ class TodoistProjectListTransfer:
                 name=orig_project.name,
                 color=orig_project.color,
                 owner=orig_project.owner,
-                #  last_updated=orig_project.last_updated,
                 is_deleted=orig_project.is_deleted,
-                #  is_archived=orig_project.is_archived
             ))
         return projects
