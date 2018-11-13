@@ -1,7 +1,7 @@
 # https://github.com/keleshev/value
 from inspect import getargspec
 
-class Value:
+class Value(object):
     def __new__(class_, *args, **kwargs):
         self = object.__new__(class_, *args, **kwargs)
         para, varargs, keywords, defaults = getargspec(self.__init__)
