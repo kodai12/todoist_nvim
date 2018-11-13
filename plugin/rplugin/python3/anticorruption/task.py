@@ -2,8 +2,8 @@ from pytodoist import todoist
 
 from typing import List
 
-from rplugin.python3.model.task import create_task
-from rplugin.python3.model.task import Task
+from rplugin.python3.domain.model.task import create_task
+from rplugin.python3.domain.model.task import Task
 
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
 

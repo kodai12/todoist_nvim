@@ -2,8 +2,8 @@ from pytodoist import todoist
 
 from typing import List
 
-from rplugin.python3.model.project import create_project
-from rplugin.python3.model.project import Project
+from rplugin.python3.domain.model.project import create_project
+from rplugin.python3.domain.model.project import Project
 
 
 class TodoistProjectTransfer:

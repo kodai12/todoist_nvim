@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from rplugin.python3.model.entity import Entity
-from rplugin.python3.model.value import Value
+from rplugin.python3.domain.model.entity import Entity
+from rplugin.python3.domain.model.value import Value
 
 
 class UserId(Value):
