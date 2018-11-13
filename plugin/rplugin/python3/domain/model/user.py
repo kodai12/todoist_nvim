@@ -56,23 +56,3 @@ class User(Entity):
         self.premium_status = premium_status
         self.start_day = start_day
         self.api_token = api_token
-
-
-def create_user(user_id: int,
-                email: str,
-                password: str,
-                full_name: str,
-                is_premium: bool,
-                premium_until: datetime,
-                start_day: datetime,
-                api_token: str):
-    return User(
-        user_id=UserId(user_id),
-        email=Email(email),
-        password=Password(password),
-        full_name=FullName(full_name),
-        premium_status=PremiumStatus(is_premium, premium_until),
-        start_day=StartDay(start_day),
-        api_token=ApiToken(api_token)
-    )
-

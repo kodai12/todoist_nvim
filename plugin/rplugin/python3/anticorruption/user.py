@@ -1,13 +1,14 @@
 from pytodoist import todoist
 
 from rplugin.python3.domain.model.user import create_user
+from rplugin.python3.domain.factory.user import create_user
 
 
 class TodoistUserTransfer:
     def __init__(self, user: todoist.User) -> None:
         self.user = user
 
-    def to_my_user(self):
+    def to_my_user(self) -> User:
         return create_user(
             user_id=self.user.id,
             email=self.user.email,
