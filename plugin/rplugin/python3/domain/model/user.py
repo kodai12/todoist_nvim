@@ -24,10 +24,14 @@ class FullName(Value):
         self.value = value
 
 
-class PremiumStatus(Value):
-    def __init__(self, is_premium: bool, premium_until: datetime) -> None:
-        self.is_premium = is_premium
-        self.premium_until = premium_until
+class IsPremium(Value):
+    def __init__(self, value: bool) -> None:
+        self.value = value
+
+
+class PremiumUntil(Value):
+    def __init__(self, vallue: datetime):
+        self.value = value
 
 
 class StartDay(Value):
@@ -46,13 +50,21 @@ class User(Entity):
                  email: Email,
                  password: Password,
                  full_name: FullName,
-                 premium_status: PremiumStatus,
+                 is_premium: IsPremium,
+                 premium_until: PremiumUntil,
                  start_day: StartDay,
                  api_token: ApiToken) -> None:
         self.user_id = user_id
         self.email = email
         self.password = password
         self.full_name = full_name
-        self.premium_status = premium_status
+        self.is_premium = is_premium
+        self.premium_until = premium_until
         self.start_day = start_day
         self.api_token = api_token
+
+    def validate_premium(self) -> bool:
+        now = datetime.now
+        if self.is_premium && self.premium_until > now:
+            return True
+        return False

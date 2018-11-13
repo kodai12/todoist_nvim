@@ -5,7 +5,8 @@ from rplugin.python3.domain.model.user import UserId
 from rplugin.python3.domain.model.user import Email
 from rplugin.python3.domain.model.user import Password
 from rplugin.python3.domain.model.user import FullName
-from rplugin.python3.domain.model.user import PremiumStatus
+from rplugin.python3.domain.model.user import IsPremium
+from rplugin.python3.domain.model.user import PremiumUntil
 from rplugin.python3.domain.model.user import StartDay
 from rplugin.python3.domain.model.user import ApiToken
 
@@ -23,7 +24,8 @@ def create_user(user_id: int,
         email=Email(email),
         password=Password(password),
         full_name=FullName(full_name),
-        premium_status=PremiumStatus(is_premium, premium_until),
+        is_premium=IsPremium(is_premium),
+        premium_until=PremiumUntil(premium_until),
         start_day=StartDay(start_day),
         api_token=ApiToken(api_token)
     )
