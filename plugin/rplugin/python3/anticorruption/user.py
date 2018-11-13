@@ -1,6 +1,6 @@
 from pytodoist import todoist
 
-from rplugin.python3.model.user import create_user
+from rplugin.python3.domain.model.user import create_user
 
 
 class TodoistUserTransfer:

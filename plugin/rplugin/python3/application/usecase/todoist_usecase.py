@@ -1,7 +1,8 @@
+from rplugin.python3.domain.model.user import User
+from rplugin.python3.domain.model.project import Project
+from rplugin.python3.domain.model.task import Task
+
 from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
-from rplugin.python3.model.user import User
-from rplugin.python3.model.project import Project
-from rplugin.python3.model.task import Task
 
 from rplugin.python3.anticorruption.user import TodoistUserTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectTransfer
