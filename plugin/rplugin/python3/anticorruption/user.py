@@ -1,6 +1,6 @@
 from pytodoist import todoist
 
-from rplugin.python3.domain.model.user import create_user
+from rplugin.python3.domain.model.user import User
 from rplugin.python3.domain.factory.user import create_user
 
 
