@@ -1,4 +1,5 @@
-from ....explugin.pytodoist import todoist
+from pytodoist import todoist
+
 from typing import List
 
 from rplugin.python3.model.task import create_task

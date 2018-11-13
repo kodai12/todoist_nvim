@@ -1,4 +1,4 @@
-from ....explugin.pytodoist import todoist
+from pytodoist import todoist
 
 
 class PytodoistAPIDataSource:
