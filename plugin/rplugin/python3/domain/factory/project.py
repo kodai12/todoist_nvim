@@ -4,7 +4,6 @@ from rplugin.python3.domain.model.project import Name
 from rplugin.python3.domain.model.project import Color
 from rplugin.python3.domain.model.project import Owner
 from rplugin.python3.domain.model.project import IsDeleted
-from rplugin.python3.domain.model.project import Project
 
 def create_project(project_id: int,
                    name: str,

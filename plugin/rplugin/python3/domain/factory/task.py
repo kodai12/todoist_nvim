@@ -3,6 +3,7 @@ from rplugin.python3.domain.model.task import TaskId
 from rplugin.python3.domain.model.task import Content
 from rplugin.python3.domain.model.task import IsChecked
 from rplugin.python3.domain.model.project import Project
+from rplugin.python3.domain.model.project import ProjectId
 from rplugin.python3.domain.model.user import UserId
 
 def create_task(task_id: int,
