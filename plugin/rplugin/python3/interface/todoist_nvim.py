@@ -127,7 +127,7 @@ def get_all_reminders(args: str):
               .format(reminder.reminder_id.value,
                       reminder.item_id.value,
                       reminder.service,
-                      reminder.due_date.value)')
+                      reminder.due_date.value))
 
 
 def get_all_notes():
