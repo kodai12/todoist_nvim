@@ -122,7 +122,7 @@ def get_all_reminders(args: str):
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistQueryService(datasource)
     reminders = service.get_all_reminders(args['project'], args['args'])
-    if len(remindes) == 0:
+    if len(reminders) == 0:
         print('リマインダーは設定されていません')
     for reminder in reminders:
         print('Id: {}\n関連タスクId: {}\nリマインド方法: {}\nDueDate:{}\n============================='
