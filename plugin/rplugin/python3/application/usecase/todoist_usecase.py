@@ -40,6 +40,10 @@ class TodoistQueryService:
     def get_all_reminders(self,
                           project_name: str,
                           task_id: int) -> list:
+        user = self.get_user()
+        if user.validate_premium() is False:
+            print('リマインダーはプレミアム会員限定機能です')
+            raise
         orig_reminders = self.datasource.get_all_reminders(project_name, int(task_id))
         transfer = TodoistReminderListTransfer(orig_reminders)
         return transfer.to_my_reminders()
