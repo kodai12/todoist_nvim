@@ -65,6 +65,6 @@ class User(Entity):
 
     def validate_premium(self) -> bool:
         now = datetime.now
-        if self.is_premium and self.premium_until > now:
+        if self.is_premium.value and self.premium_until.value > now:
             return True
         return False
