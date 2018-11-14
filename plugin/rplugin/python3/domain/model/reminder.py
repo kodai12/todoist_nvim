@@ -1,4 +1,4 @@
-from typing import Enum
+from enum import Enum
 from datetime import datetime
 
 from rplugin.python3.domain.model.entity import Entity
