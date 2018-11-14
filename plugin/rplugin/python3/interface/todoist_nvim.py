@@ -121,6 +121,7 @@ def get_all_reminders(args: str):
         return
     datasource = PytodoistAPIDataSource(_get_email(), _get_password())
     service = TodoistQueryService(datasource)
+    print('args[0] is {}, args[1] is {}'.format(args['project'], args['args']))
     reminders = service.get_all_reminders(args['project'], args['args'])
     for reminder in reminders:
         print('Id: {}\n関連タスクId: {}\nリマインド方法: {}\nDueDate:{}\n============================='

@@ -40,7 +40,7 @@ class TodoistQueryService:
     def get_all_reminders(self,
                           project_name: str,
                           task_id: int) -> list:
-        orig_reminders = self.datasource.get_reminders(project_name, task_id)
+        orig_reminders = self.datasource.get_all_reminders(project_name, int(task_id))
         transfer = TodoistReminderListTransfer(orig_reminders)
         return transfer.to_my_reminders()
 
