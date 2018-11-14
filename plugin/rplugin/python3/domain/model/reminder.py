@@ -1,4 +1,5 @@
 from enum import Enum
+from enum import auto
 from datetime import datetime
 
 from rplugin.python3.domain.model.entity import Entity
