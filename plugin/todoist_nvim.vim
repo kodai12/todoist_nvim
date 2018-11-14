@@ -37,6 +37,10 @@ function! todoist_nvim#delete_task(args)
   python todoist_nvim.delete_task(vim.eval('a:args'))
 endfunction
 
+function! todoist_nvim#get_all_reminders(args)
+  python todoist_nvim.get_all_reminders(vim.eval('a:args'))
+endfunction
+
 function! todoist_nvim#get_all_notes()
   python todoist_nvim.get_all_notes()
 endfunction
@@ -52,3 +56,4 @@ command! -nargs=1 TodoistAddTask call todoist_nvim#add_task(<q-args>)
 command! -nargs=1 TodoistCompleteTask call todoist_nvim#complete_task(<q-args>)
 command! -nargs=1 TodoistDeleteTask call todoist_nvim#delete_task(<q-args>)
 command! TodoistNotes call todoist_nvim#get_all_notes()
+command! TodoistReminders call todoist_nvim#get_all_reminders(<q-args>)

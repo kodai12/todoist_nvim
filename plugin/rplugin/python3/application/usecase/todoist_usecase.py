@@ -1,6 +1,7 @@
 from rplugin.python3.domain.model.user import User
 from rplugin.python3.domain.model.project import Project
 from rplugin.python3.domain.model.task import Task
+from rplugin.python3.domain.model.reminder import Reminder
 
 from rplugin.python3.dataaccess.pytodoist import PytodoistAPIDataSource
 
@@ -9,6 +10,7 @@ from rplugin.python3.anticorruption.project import TodoistProjectTransfer
 from rplugin.python3.anticorruption.project import TodoistProjectListTransfer
 from rplugin.python3.anticorruption.task import TodoistTaskTransfer
 from rplugin.python3.anticorruption.task import TodoistTaskListTransfer
+from rplugin.python3.anticorruption.reminder import TodoistReminderListTransfer
 
 
 class TodoistQueryService:
@@ -34,6 +36,13 @@ class TodoistQueryService:
         orig_tasks = self.datasource.get_all_tasks(project_name)
         transfer = TodoistTaskListTransfer(orig_tasks)
         return transfer.to_my_tasks()
+
+    def get_all_reminders(self,
+                          project_name: str,
+                          task_id: int) -> list:
+        orig_reminders = self.datasource.get_reminders(project_name, task_id)
+        transfer = TodoistReminderListTransfer(orig_reminders)
+        return transfer.to_my_reminders()
 
 
 class TodoistCommandService:

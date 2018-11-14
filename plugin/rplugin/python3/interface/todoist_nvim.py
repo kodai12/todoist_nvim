@@ -111,6 +111,25 @@ def delete_task(args: str):
                       deleted_task.content.value,
                       deleted_task.parent_project.name.value))
 
+
+def get_all_reminders(args: str):
+    args = _parse_args(args)
+    if 'project' not in args or args['project'] == '':
+        args['project'] = 'Inbox'
+    if 'args' not in args or args['args'] == '':
+        print('task_idを指定してください')
+        return
+    datasource = PytodoistAPIDataSource(_get_email(), _get_password())
+    service = TodoistCommandService(datasource)
+    reminders = service.get_all_reminders(args['project'], args['args'])
+    for reminder in reminders:
+        print('Id: {}\n関連タスクId: {}\nリマインド方法: {}\nDueDate:{}\n============================='
+              .format(reminder.reminder_id.value,
+                      reminder.item_id.value,
+                      reminder.service,
+                      reminder.due_date.value)')
+
+
 def get_all_notes():
     pass
 

@@ -45,6 +45,12 @@ class PytodoistAPIDataSource:
         orig_task.delete()
         return orig_task
 
+    def get_reminders(self,
+                      project_name: str,
+                      task_id: int) -> list:
+        orig_task = self._get_task_by_task_id(project_name, task_id)
+        return orig_task.get_reminders()
+
     def _get_task_by_task_id(self, project_name: str, task_id: int) -> todoist.Task:
         orig_tasks = self.get_all_tasks(project_name)
         orig_task = [task for task in orig_tasks if task.__dict__['id'] == task_id]
