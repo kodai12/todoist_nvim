@@ -56,6 +56,7 @@ class TodoistCommandService:
     def add_task(self,
                  project_name: str,
                  content: str) -> Task:
+        # TODO Taskモデルを作ってdatasourceで保存
         orig_task = self.datasource.add_task(project_name, content)
         transfer = TodoistTaskTransfer(orig_task)
         return transfer.to_my_task()

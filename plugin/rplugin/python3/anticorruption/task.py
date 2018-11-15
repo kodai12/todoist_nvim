@@ -23,6 +23,7 @@ class TodoistTaskTransfer:
             is_checked=self.task.checked,
             user_id=self.task.user_id
         )
+    # next_identity的なメソッドを作っといて適当なTaskクラスを作成しとく
 
 
 class TodoistTaskListTransfer:
